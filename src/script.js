@@ -5,11 +5,17 @@ const greenBtn = document.querySelector(".btn .green");
 const redBtn = document.querySelector(".btn .red");
 const body = document.querySelector("body");
 
+// Click Event: Change Background Color
 btnContainer.addEventListener("click", function (event) {
   const color = event.target.dataset.color;
-  console.log(color);
   if (color) {
     body.className = "";
     body.classList.add(color);
   }
 });
+
+// Click Event: Change Current Color
+// TODO
+
+// Click Event: Append to Past Colors
+// TODO
