@@ -1,14 +1,14 @@
-import { fromEvent, interval } from "rxjs";
+import { fromEvent } from 'rxjs';
 
 function pickRandomElement(array: any[]) {
   const idx = Math.floor(Math.random() * array.length);
   return array[idx];
 }
 
-const validColors: string[] = ["blue", "yellow", "green", "red"];
+// const validColors: string[] = ['blue', 'yellow', 'green', 'red'];
 
 function generateArrayOfColors(num = 5): string[] {
-  const availableColors: string[] = ["blue", "yellow", "green", "red"];
+  const availableColors: string[] = ['blue', 'yellow', 'green', 'red'];
   let colors: string[];
   for (let i = 0; i < num; i++) {
     if (!colors) {
@@ -17,7 +17,7 @@ function generateArrayOfColors(num = 5): string[] {
     } else {
       const previousColor = colors[i - 1];
       const filteredColors = availableColors.filter(
-        (color) => color !== previousColor
+        (color) => color !== previousColor,
       );
       const newColor = pickRandomElement(filteredColors);
       colors.push(newColor);
@@ -27,33 +27,33 @@ function generateArrayOfColors(num = 5): string[] {
 }
 console.log(generateArrayOfColors());
 
-const btnContainer = document.querySelector("#btn-container");
-const currentColor = document.querySelector("#current-color");
-const body = document.querySelector("body");
+const btnContainer = document.querySelector('#btn-container');
+const currentColor = document.querySelector('#current-color');
+const body = document.querySelector('body');
 // const blueBtn = document.querySelector(".btn .blue");
 // const yellowBtn = document.querySelector(".btn .yellow");
 // const greenBtn = document.querySelector(".btn .green");
 // const redBtn = document.querySelector(".btn .red");
 
 // Click Event: Change Background Color
-const colorClick = fromEvent(btnContainer, "click");
+const colorClick = fromEvent(btnContainer, 'click');
 
-colorClick.subscribe(function (event) {
-  const color = (event.target as HTMLElement).dataset.color;
-  body.className = "";
+colorClick.subscribe((event) => {
+  const { color } = (event.target as HTMLElement).dataset;
+  body.className = '';
   if (color) {
     body.classList.add(color);
   } else {
-    body.classList.add("white");
+    body.classList.add('white');
   }
 });
 
 // Click Event: Change Current Color
-colorClick.subscribe(function (event) {
-  const color = (event.target as HTMLElement).dataset.color;
+colorClick.subscribe((event) => {
+  const { color } = (event.target as HTMLElement).dataset;
   if (color) {
     currentColor.innerHTML = color[0].toUpperCase() + color.slice(1);
   } else {
-    currentColor.innerHTML = "White";
+    currentColor.innerHTML = 'White';
   }
 });
