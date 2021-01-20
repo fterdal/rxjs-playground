@@ -25,19 +25,19 @@ function generateArrayOfColors(num = 5): string[] {
   }
   return colors;
 }
-console.log(generateArrayOfColors());
 
 const btnContainer = document.querySelector('#btn-container');
 const currentColor = document.querySelector('#current-color');
 const body = document.querySelector('body');
-// const blueBtn = document.querySelector(".btn .blue");
-// const yellowBtn = document.querySelector(".btn .yellow");
-// const greenBtn = document.querySelector(".btn .green");
-// const redBtn = document.querySelector(".btn .red");
 
-// Click Event: Change Background Color
 const colorClick = fromEvent(btnContainer, 'click');
 
+// TODO: Instead of passing in a callback, you can pass in an object, next, complete, error
+// TODO: Create an observable that depends on other observables.
+// TODO: research flatMap vs map
+// TODO: focus on services and components
+
+// Click Event: Change Background Color
 colorClick.subscribe((event) => {
   const { color } = (event.target as HTMLElement).dataset;
   body.className = '';

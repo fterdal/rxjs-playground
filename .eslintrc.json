@@ -12,6 +12,7 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "no-console": "off",
+    "no-multiple-empty-lines": "warn",
     "no-plusplus": "off",
     "no-unused-vars": "warn"
   }
